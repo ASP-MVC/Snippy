@@ -1,0 +1,12 @@
+﻿@model Snippy.App.Models.ViewModels.DetailedLabelViewModel
+@{
+    ViewBag.Title = "Label's details";
+}
+
+<div class="row">
+    <div class="col-sm-10 col-md-offset-1">
+        <h2>All snippets with label <span class="label label-primary">@Model.Text</span></h2>
+        <hr />
+        @Html.DisplayFor(x => x.Snippets)
+    </div>
+</div>

@@ -1,0 +1,7 @@
+﻿@model Snippy.App.Models.ViewModels.LabelViewModel
+
+<li class="list-group-item">
+    @Html.ActionLink(Model.Text, "Details", "Labels", new {id = Model.Id}, null)
+    <span> </span>
+    <span class="badge">@Model.SnippetsCount</span>
+</li>

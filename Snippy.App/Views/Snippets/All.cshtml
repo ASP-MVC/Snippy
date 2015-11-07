@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Snippy.App.Models.ViewModels.SnippetViewModel>
+@{
+    ViewBag.Title = "All";
+}
+
+<div class="well row">
+    <h2 class="text-center">All snippets</h2>
+    <div class="col-sm-10 col-md-offset-1">
+        @Html.DisplayFor(m => m)
+    </div>
+</div>

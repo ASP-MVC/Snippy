@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Snippy.App.Models.ViewModels.SnippetViewModel>
+@{
+    ViewBag.Title = "My snippets";
+}
+
+<div class="row">
+    <div class="col-sm-10 col-md-offset-1">
+        <h2>@ViewBag.Title</h2>
+        <hr />
+        @if (Model.Any())
+        {
+            @Html.DisplayFor(x => x)
+        }
+        else
+        {
+            <p>
+                You have no snippets. You can
+                @Html.ActionLink("create", "Create", "Snippets")
+                one now.
+            </p>
+        }
+    </div>
+</div>

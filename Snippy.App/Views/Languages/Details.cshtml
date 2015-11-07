@@ -1,0 +1,19 @@
+﻿@model Snippy.App.Models.ViewModels.DetaildLanguageViewModel
+@{
+    ViewBag.Title = "Language " + Model.Name;
+}
+
+<h2>All snippets for language @Model.Name</h2>
+<div class="row">
+    <div class="col-sm-10">
+        @if (Model.Snippets.Any())
+        {
+            @Html.DisplayFor(x => x.Snippets)
+        }
+        else
+        {
+            <p>There are no snippets for this language.</p>
+        }
+    </div>
+</div>
+

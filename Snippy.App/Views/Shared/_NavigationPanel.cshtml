@@ -1,0 +1,7 @@
+﻿<li>@Html.ActionLink("Home", "Index", "Home")</li>
+<li>@Html.ActionLink("All snippets", "All", "Snippets")</li>
+@if (User.Identity.IsAuthenticated)
+{
+    <li>@Html.ActionLink("My snippets", "My", "Snippets")</li>
+    <li>@Html.ActionLink("New snippet", "Create", "Snippets")</li>
+}

@@ -1,0 +1,18 @@
+﻿@model Snippy.App.Models.ViewModels.CommentViewModel
+
+<div class="well">
+    <p>
+        @Model.Content
+    </p>
+    <br/>
+    <div>
+        <p>
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            <strong> @Model.AuthorUsername</strong>
+            <span> on @Model.CreatedAt.ToShortDateString()</span>
+        </p>
+        <p>
+            on snippet @Html.ActionLink(Model.SnippetTitle, "Details", "Snippets", new {id = Model.SnippetId}, null)
+        </p>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+﻿@model Snippy.App.Models.BindingModels.SnippetBindingModel
+@{
+    ViewBag.Title = "Edit snippet";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Edit", "Snippets", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.EditorFor(x => x.Title)
+    @Html.EditorFor(x => x.Description)
+    @Html.EditorFor(x => x.Code)
+    @Html.EditorFor(a => a.ProgrammingLanguageId, new { ListItem = Model.Languages })
+    @Html.EditorFor(x => x.LabelsAsText)
+
+    <input type="submit" value="Edit" class="btn btn-success" />
+    @Html.ActionLink("Cancel", "Index", "Home", null, new { @class = "btn btn-default" })
+}

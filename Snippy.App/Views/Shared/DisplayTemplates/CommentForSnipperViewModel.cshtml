@@ -1,0 +1,26 @@
+﻿@using Microsoft.AspNet.Identity
+@model IEnumerable<Snippy.App.Models.ViewModels.CommentViewModel>
+
+@foreach (var comment in Model)
+{
+    <div class="well">
+        @if (User.Identity.GetUserId() == comment.AuthorId)
+        {
+            <div class="pull-right">
+                @Html.ActionLink("X", "Delete", "Comments", new { id = comment.Id }, new { @class = "btn btn-danger btn-sm" })
+            </div>
+        }
+        <p>
+            @comment.Content
+        </p>
+        <br/>
+        <div>
+            <p>
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                <strong> @comment.AuthorUsername</strong>
+                <span> on @comment.CreatedAt.ToShortDateString()</span>
+            </p>
+        </div>
+    </div>
+
+}
