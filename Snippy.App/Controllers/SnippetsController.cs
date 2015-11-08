@@ -12,8 +12,11 @@
 
     using Ninject.Infrastructure.Language;
 
+    using PagedList;
+
     using Snippy.App.Models.BindingModels;
     using Snippy.App.Models.ViewModels;
+    using Snippy.Common;
     using Snippy.Data.UnitOfWork;
     using Snippy.Infrastructure.Populators;
     using Snippy.Models;
@@ -30,16 +33,15 @@
 
         [HttpGet]
         [AllowAnonymous]
-        public ActionResult All()
+        public ActionResult All(int page = 1)
         {
             var allSnippets = 
                 this.Data.Snippets.All()
                 .OrderByDescending(s => s.CreatedAt)
                 .ThenBy(s => s.Title)
-                .ProjectTo<SnippetViewModel>()
-                .ToList();
+                .ProjectTo<SnippetViewModel>();
 
-            return this.View(allSnippets);
+            return this.View(allSnippets.ToPagedList(page, GlobalConstants.DefaultPageSize));
         }
 
         [HttpGet]

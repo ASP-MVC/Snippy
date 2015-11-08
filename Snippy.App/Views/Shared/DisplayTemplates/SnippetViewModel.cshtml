@@ -6,6 +6,7 @@
     </h3>
     @foreach (var label in Model.Labels)
     {
-        <span> @Html.ActionLink(label.Text, "Details", "Labels", new { id = label.Id }, new { @class = "label label-primary" })</span> 
+        <span> @Html.ActionLink(label.Text, "Details", "Labels", new { id = label.Id }, new { @class = "label label-primary" })</span>
     }
 </div>
+<hr />

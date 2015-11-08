@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Snippy.App.Models.ViewModels.SnippetViewModel>
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<Snippy.App.Models.ViewModels.SnippetViewModel>
 @{
     ViewBag.Title = "All";
 }
@@ -8,4 +9,9 @@
     <div class="col-sm-10 col-md-offset-1">
         @Html.DisplayFor(m => m)
     </div>
+    <p>Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</p>
+
+    @Html.PagedListPager(Model, page => Url.Action("All",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
 </div>
+
