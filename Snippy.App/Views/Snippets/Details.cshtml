@@ -30,6 +30,14 @@
         <div class="well">
             <pre><code>@Model.Code</code></pre>
         </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <span class="badge">
+                    <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                    <span id="snippetCommentsCount">@Model.Comments.Count()</span> comments
+                </span>
+            </div>
+        </div>
         <h3>Comments: </h3>
         @if (User.Identity.IsAuthenticated)
         {
@@ -64,6 +72,10 @@
 </div>
 <script>
     function hideLabels() {
+        var snippetComments = $("#snippetCommentsCount");
+        var val = snippetComments.text();
+        snippetComments.text(parseInt(val) + 1);
         $(".no-comments-label").hide();
+        $("#Content").val("");
     }
 </script>
